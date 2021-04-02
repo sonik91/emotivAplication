@@ -25,6 +25,15 @@ parser.on('data', data =>{console.log('got word from arduino:', data);});
 
 //initialiser cortex
 let c = new Cortex;
+/*
+mot: Les données de mouvement du casque.
+dev: Les données de l'appareil provenant du casque. Il comprend le niveau de la batterie, la force du signal sans fil et la qualité de contact de chaque capteur EEG.
+pow: La puissance de bande de chaque capteur EEG. Il comprend les bandes alpha, bêta faible, bêta élevée, gamma et thêta. 
+met: Les résultats de la détection des mesures de performance.
+com: Les résultats de la détection des commandes mentales. Vous devez charger un profil pour obtenir des résultats significatifs.
+fac: Les résultats de la détection des expressions faciales.
+sys: Les événements du système. Ces événements sont liés à l'apprentissage des commandes mentales et des expressions faciales. Voir BCI pour plus de détails.
+*/
 
 let stream = ["com"];
 let profileName = "pierre";//le nom de votre profil sur emotiv BCI
