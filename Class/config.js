@@ -2,8 +2,8 @@ const config = {
     "cortex" : {
         "socketUrl" : 'wss://localhost:6868',
         "user" : {//info api cree sur : https://www.emotiv.com/my-account/cortex-apps/
-            "clientId":"yourKey",
-            "clientSecret":"yourKey",
+            "clientId":"your key",
+            "clientSecret":"your key",
             "debit":2
         }
     },
