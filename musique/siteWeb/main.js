@@ -1,7 +1,7 @@
 const elementaudio = document.getElementById("elementAudio");
 //elementaudio.playbackRate = 1;
 const adresseApi = "192.168.1.85:8080";
-const nombreEchantilonage = 10;
+const nombreEchantilonage = 10;//nombre de valeur recupere pour faire une moyenne
 let echantillonage = [];
 
 apelleApi();
@@ -20,8 +20,17 @@ function traitementdonner(data){
         //console.log(data);
         let valeurUtiliser = ((data.af3.alpha+data.af4.alpha)/2)*0.1
         console.log(valeurUtiliser);
-        valeurUtiliser = valeurUtiliser>4?4:valeurUtiliser;
+        if(echantillonage.length<10){echantillonage.push(valeurUtiliser);}
+        else{
+            let valeurEchantioner = 0;
+            valeurUtiliser.forEach((e) => { valeurEchantioner += e;});
+
+            valeurEchantioner = valeurEchantioner/nombreEchantilonage;
+            valeurUtiliser = [];
+
+        valeurUtiliser = valeurEchantioner>4?4:valeurEchantioner;
         elementaudio.playbackRate = valeurUtiliser;
+        }
     }
     else{
         elementaudio.playbackRate = 0;
